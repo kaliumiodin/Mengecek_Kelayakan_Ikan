@@ -6,50 +6,38 @@ st.set_page_config(
     layout="wide"
 )
 
-# ===== SIDEBAR =====
-st.sidebar.title("🧭 Navigasi")
-menu = st.sidebar.radio(
-    "Pilih Bahan Pangan:",
-    ["🏠 Beranda", "🐟 Ikan", "🥩 Daging", "🥦 Sayur", "🍎 Buah"]
-)
-
 # ===== BERANDA =====
-if menu == "🏠 Beranda":
-    st.title("🥗 Aplikasi Evaluasi Kelayakan Bahan Pangan")
-    st.write("""
-    Aplikasi ini membantu menentukan **kelayakan bahan pangan**
-    berdasarkan **parameter fisik dan organoleptik**, serta
-    memberikan **rekomendasi pengolahan** agar kualitas gizi tetap terjaga.
-    """)
+st.title("🥗 Aplikasi Evaluasi Kelayakan Bahan Pangan")
 
-    st.info("""
-    📌 Bahan yang dapat dievaluasi:
-    - Ikan
-    - Daging
-    - Sayur
-    - Buah
-    """)
+st.subheader("Sistem Pendukung Keputusan Berbasis Parameter Organoleptik")
 
-# ===== IKAN =====
-elif menu == "🐟 Ikan":
-    st.header("🐟 Evaluasi Kesegaran Ikan")
+st.write("""
+**Selamat datang!**
 
-    bau = st.selectbox("Bau ikan", ["Segar", "Agak amis", "Busuk"])
-    mata = st.selectbox("Kondisi mata", ["Jernih", "Agak keruh", "Keruh"])
-    tekstur = st.selectbox("Tekstur daging", ["Kenyal", "Agak lembek", "Lembek"])
+Aplikasi ini dirancang untuk membantu pengguna dalam **mengevaluasi kelayakan
+dan kesegaran bahan pangan** sebelum diolah atau dikonsumsi.
+Evaluasi dilakukan berdasarkan **parameter organoleptik sederhana**
+seperti warna, bau, tekstur, serta kondisi fisik bahan pangan.
+""")
 
-    if st.button("Evaluasi Ikan"):
-        if bau == "Busuk" or tekstur == "Lembek":
-            st.error("❌ Ikan TIDAK layak diolah")
-        elif bau == "Segar" and mata == "Jernih":
-            st.success("✅ Ikan segar dan layak")
-            st.write("➡️ Rekomendasi: kukus, pepes, atau sup")
-        else:
-            st.warning("⚠️ Kualitas menurun, segera diolah")
+st.markdown("---")
 
-# ===== DAGING =====
-elif menu == "🥩 Daging":
-    st.header("🥩 Evaluasi Kesegaran Daging")
+st.header("🎯 Tujuan Aplikasi")
+st.write("""
+1. Membantu menentukan apakah bahan pangan masih **layak diolah atau dikonsumsi**
+2. Mengurangi risiko konsumsi bahan pangan yang tidak aman
+3. Memberikan **rekomendasi pengolahan** agar mutu dan kandungan gizi tetap terjaga
+""")
 
-    warna = st.selectbox("Warna daging", ["Merah segar", "Merah pucat", "Coklat"])
-    bau = s
+st.markdown("---")
+
+st.header("📌 Fitur Utama")
+st.write("""
+- Evaluasi kelayakan **ikan**
+- Evaluasi kelayakan **daging**
+- Evaluasi kelayakan **sayur**
+- Evaluasi kelayakan **buah**
+- Rekomendasi metode pengolahan yang sesuai
+""")
+
+st.info("👉 Gunakan menu navigasi untuk memilih jenis bahan pangan yang ingin dievaluasi.")
